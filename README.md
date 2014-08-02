@@ -22,13 +22,13 @@ to start app server when mongodb connection is open.
 ## Usages
 
 ```js
-var mongo = require('mm-mongoose-connection');
+var mongodb = require('mm-mongoose-connection');
 var config = {
   dbURI: 'mongodb://127.0.0.1:27017/connectionDemo',
   dbOptions: {user: '', pass: ''}
 }
 // start mongodb
-mongo(config, function() {
+mongodb(config, function() {
     // start up the server
     app.listen(3000, function () {
         console.info('app started on port: 3000');
