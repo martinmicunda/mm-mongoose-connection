@@ -15,13 +15,13 @@ var logger   = require('mm-node-logger')(module),
  *
  * @example
  * ```js
- * var mongo = require('mm-mongoose-connection');
+ * var mongodb = require('mm-mongoose-connection');
  * var config = {
  *     dbURI: 'mongodb://127.0.0.1:27017/connectionDemo',
  *     dbOptions: {user: '', pass: ''}
  * }
  * // start mongo db
- * mongo(config, function() {
+ * mongodb(config, function() {
  *     // start up the server
  *     app.listen(3000, function () {
  *         console.info('app started on port: 3000');
