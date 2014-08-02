@@ -2,8 +2,9 @@
 mm-mongoose-connection
 ======================
 The `mm-mongoose-connection` module follow best practice for creating, maintaining and using a mongoose connection like:
- * open the connection when the app starts 
- * monitor the connection events (`connected`, `error` and `disconnected`)
+ * open the connection when the app process start
+ * start the app server when the connection is open (optional)
+ * monitor the connection events (`connected`, `open`, `error` and `disconnected`)
  * close the connection when the app process terminates
 
 ## Installation
@@ -13,7 +14,10 @@ $ npm install mm-mongoose-connection --save
 ```
 
 ## Configuration
-Pass config objects that contains properties `dbURI` and `dbOptions` as you can see in usages below.
+The `mm-mongoose-connection` module accept two arguments `config` and `callback`. The `config` objects must contains
+properties `dbURI` and `dbOptions` as you can see in usages below. The `callback` argument is optional and
+it's up to you if you want to start app server when mongodb connection is open.
+> **Hint:** It's good practice to start app server when database connection is open.
 
 ## Usages
 
@@ -23,9 +27,15 @@ var config = {
   dbURI: 'mongodb://127.0.0.1:27017/connectionDemo',
   dbOptions: {user: '', pass: ''}
 }
-// start mongo db
-mongo(config);
+// start mongodb
+mongo(config, function() {
+    // start up the server
+    app.listen(3000, function () {
+        console.info('app started on port: 3000');
+    });
+});
 ```
+> **Hint:** See real app usage [here](https://github.com/martinmicunda/e-scheduling)
 
 ## License
 

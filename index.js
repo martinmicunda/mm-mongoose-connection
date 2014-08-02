@@ -8,24 +8,31 @@ var logger   = require('mm-node-logger')(module),
 
 /**
  * This module follow best practice for creating, maintaining and using a Mongoose connection like:
- *  - open the connection when the app starts
+ *  - open the connection when the app process start
+ *  - start the app server when the connection is open (optional)
  *  - monitor the connection events (`connected`, `error` and `disconnected`)
  *  - close the connection when the app process terminates
  *
  * @example
- *  ```js
- *      var mongo = require('mm-mongoose-connection');
- *      var config = {
- *          dbURI: 'mongodb://127.0.0.1:27017/connectionDemo',
- *          dbOptions: {user: '', pass: ''}
- *      }
- *      // start mongo db
- *      mongo(config.get('mongo'));
- *  ```
+ * ```js
+ * var mongo = require('mm-mongoose-connection');
+ * var config = {
+ *     dbURI: 'mongodb://127.0.0.1:27017/connectionDemo',
+ *     dbOptions: {user: '', pass: ''}
+ * }
+ * // start mongo db
+ * mongo(config, function() {
+ *     // start up the server
+ *     app.listen(3000, function () {
+ *         console.info('app started on port: 3000');
+ *     });
+ * });
+ * ```
  *
  * @param {Object} config - the mongo config connection options
+ * @param {*=} cb - the callback that start server
  */
-module.exports = function(config) {
+module.exports = function(config, cb) {
 
     // create the database connection
     mongoose.connect(config.dbURI, config.dbOptions);
@@ -35,7 +42,7 @@ module.exports = function(config) {
         logger.info('Mongoose connected to ' + config.dbURI);
     });
 
-    // ff the connection throws an error
+    // if the connection throws an error
     mongoose.connection.on('error', function (err) {
         logger.error('Mongoose connection error: ' + err);
     });
@@ -43,6 +50,11 @@ module.exports = function(config) {
     // when the connection is disconnected
     mongoose.connection.on('disconnected', function () {
         logger.info('Mongoose disconnected');
+    });
+
+    // when the connection is open
+    mongoose.connection.once('open', function () {
+        if(cb && typeof(cb) === 'function') cb();
     });
 
     // if the Node process ends, close the Mongoose connection
