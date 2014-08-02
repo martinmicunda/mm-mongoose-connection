@@ -14,9 +14,9 @@ $ npm install mm-mongoose-connection --save
 ```
 
 ## Configuration
-The `mm-mongoose-connection` module accept two arguments `config` and `callback`. The `config` objects must contains
-properties `dbURI` and `dbOptions` as you can see in usages below. The `callback` argument is optional and
-it's up to you if you want to start app server when mongodb connection is open.
+The `mm-mongoose-connection` module accept two arguments `config` and `callback`. The `config` objects must contains `dbURI`
+and `dbOptions` properties as you can see in usages below. The `callback` argument is optional and it's up to you if you want
+to start app server when mongodb connection is open.
 > **Hint:** It's good practice to start app server when database connection is open.
 
 ## Usages
