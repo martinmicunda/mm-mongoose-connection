@@ -9,7 +9,7 @@ var logger   = require('mm-node-logger')(module),
 /**
  * This module follow best practice for creating, maintaining and using a Mongoose connection like:
  *  - open the connection when the app process start
- *  - start the app server when the connection is open (optional)
+ *  - start the app server when after the database connection was open (optional)
  *  - monitor the connection events (`connected`, `error` and `disconnected`)
  *  - close the connection when the app process terminates
  *
@@ -21,7 +21,7 @@ var logger   = require('mm-node-logger')(module),
  *     dbOptions: {user: '', pass: ''}
  * }
  * // start mongodb
- * mongodb(config, function() {
+ * mongodb(config, function startServer() {
  *     // start up the server
  *     app.listen(3000, function () {
  *         console.info('app started on port: 3000');
