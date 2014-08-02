@@ -35,7 +35,7 @@ mongo(config, function() {
     });
 });
 ```
-> **Hint:** See real app usage [here](https://github.com/martinmicunda/e-scheduling)
+> **Hint:** See real app usage [here](https://github.com/martinmicunda/e-scheduling).
 
 ## License
 
