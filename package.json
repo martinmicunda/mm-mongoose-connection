@@ -1,7 +1,7 @@
 {
     "name": "mm-mongoose-connection",
     "description": "A mongoose module that follow best practice for creating, maintaining and using a mongoose connection.",
-    "version": "0.0.2",
+    "version": "0.0.3",
     "author": {
         "name": "Martin Micunda",
         "email": "martinmicunda@hotmail.com",
