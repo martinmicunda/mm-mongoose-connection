@@ -3,7 +3,7 @@ mm-mongoose-connection
 ======================
 The `mm-mongoose-connection` module follow best practice for creating, maintaining and using a mongoose connection like:
  * open the connection when the app process start
- * start the app server after the database connection was open (optional)
+ * start the app server after the database connection is open (optional)
  * monitor the connection events (`connected`, `open`, `error` and `disconnected`)
  * close the connection when the app process terminates
 
@@ -16,8 +16,8 @@ $ npm install mm-mongoose-connection --save
 ## Configuration
 The `mm-mongoose-connection` module accept two arguments `config` and `callback`. The `config` objects must contains `dbURI`
 and `dbOptions` properties as you can see in usages below (see full list of `dbOptions` properties [here](http://mongoosejs.com/docs/connections.html)). The `callback` argument is optional and it's up to you if you want
-to start app the server after mongodb connection was open.
-> **Hint:** It's good practice to start app server after database connection was open.
+to start app the server after mongodb connection is open.
+> **Hint:** It's good practice to start app server after database connection is open.
 
 ## Usage
 
