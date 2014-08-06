@@ -37,7 +37,7 @@ mongodb(config, function startServer() {
     });
 });
 ```
-> **Hint:** See real app usage [here](https://github.com/martinmicunda/e-scheduling).
+> **Hint:** See real app usage [here](https://github.com/martinmicunda/employee-scheduling).
 
 ## Example
 You can view live examples here:
