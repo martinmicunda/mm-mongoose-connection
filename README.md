@@ -22,12 +22,14 @@ to start app the server after mongodb connection was open.
 ## Usages
 
 ```js
+var app = require('express')();
 var mongodb = require('mm-mongoose-connection');
+
 var config = {
   dbURI: 'mongodb://127.0.0.1:27017/connectionDemo',
   dbOptions: {user: '', pass: ''}
 }
-// start mongodb
+// start up the mongodb
 mongodb(config, function startServer() {
     // start up the server
     app.listen(3000, function () {
