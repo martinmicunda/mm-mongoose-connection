@@ -19,7 +19,7 @@ and `dbOptions` properties as you can see in usages below (see full list of `dbO
 to start app the server after mongodb connection was open.
 > **Hint:** It's good practice to start app server after database connection was open.
 
-## Usages
+## Usage
 
 ```js
 var app = require('express')();
@@ -38,6 +38,11 @@ mongodb(config, function startServer() {
 });
 ```
 > **Hint:** See real app usage [here](https://github.com/martinmicunda/e-scheduling).
+
+## Example
+You can view live examples here:
+
+<a href="http://runnable.com/U-I3ooLFYVYguhni/mm-mongoose-connection-example-for-node-js-mongodb-and-express" target="_blank"><img src="https://runnable.com/external/styles/assets/runnablebtn.png" style="width:67px;height:25px;"></a>
 
 ## License
 
