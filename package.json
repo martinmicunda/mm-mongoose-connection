@@ -1,6 +1,6 @@
 {
     "name": "mm-mongoose-connection",
-    "description": "A mongoose module that follow best practice for creating, maintaining and using a mongoose connection.",
+    "description": "A mongoose module that follow best practice for creating, maintaining and using a mongoose connection",
     "version": "0.0.3",
     "author": {
         "name": "Martin Micunda",
@@ -17,6 +17,7 @@
         "url": "https://github.com/martinmicunda/mm-mongoose-connection/issues"
     },
     "keywords": [
+        "mm",
         "mongoose",
         "connection",
         "mongodb",
@@ -27,9 +28,19 @@
         "README.md",
         "LICENSE"
     ],
+    "scripts": {
+        "dep-check": "david"
+    },
+    "pre-commit": [
+        "dep-check"
+    ],
     "dependencies": {
         "mongoose": "3.8.x",
         "mm-node-logger": "0.0.*"
+    },
+    "devDependencies": {
+        "you-shall-not-commit": "*",
+        "david": "3.3.*"
     },
     "licenses": {
         "type": "MIT",
