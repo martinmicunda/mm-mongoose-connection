@@ -1,7 +1,7 @@
 {
     "name": "mm-mongoose-connection",
     "description": "A mongoose module that follow best practice for creating, maintaining and using a mongoose connection",
-    "version": "0.0.3",
+    "version": "0.0.4",
     "author": {
         "name": "Martin Micunda",
         "email": "martinmicunda@hotmail.com",
@@ -25,13 +25,16 @@
     ],
     "files": [
         "index.js",
+        "lib/",
         "README.md",
         "LICENSE"
     ],
     "scripts": {
+        "hint": "jshint .",
         "dep-check": "david"
     },
     "pre-commit": [
+        "hint",
         "dep-check"
     ],
     "dependencies": {
@@ -40,7 +43,8 @@
     },
     "devDependencies": {
         "you-shall-not-commit": "*",
-        "david": "3.3.*"
+        "david": "3.3.*",
+        "jshint": "2.5.*"
     },
     "licenses": {
         "type": "MIT",
